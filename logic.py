@@ -1,5 +1,8 @@
 def get_hangover(drinks):
-    if drinks >= 10:
+    if drinks >= 30:
+        verdict = "You are a legend."
+        recc = ["However, youre either lying or need a hospital."]
+    elif drinks >= 10:
         verdict = "Was it worth it? Even for me thats rough."
         recc = ["Go to church."]
     elif drinks >= 6:
@@ -11,9 +14,12 @@ def get_hangover(drinks):
     elif drinks >= 1:
         verdict = "Low tolerance huh?"
         recc = ["Have some water", "do some pushups."]
+    elif drinks == 0:
+        verdict = "You are a good person."
+        recc = ["Go find a bar or something."]
     else:
-        verdict = "Why are you even here?"
-        recc = ["Go find a bar."]
+        verdict = "Hows that possibe?"
+        recc = ["Man works at the place."]
     return verdict, recc
 
 
