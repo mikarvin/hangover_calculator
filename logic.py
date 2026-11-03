@@ -16,8 +16,5 @@ def get_hangover(drinks):
         recc = ["Go find a bar."]
     return verdict, recc
 
-v, r = get_hangover(5)
-print(v)
-print(r)
 
     
