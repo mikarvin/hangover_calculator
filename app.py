@@ -11,5 +11,5 @@ def home():
 def result():
     drinks = int(request.form["drinks"])
     verdict, recc = get_hangover(drinks)
-    return f"Verdict: {verdict} <br> Recommendations: {', '.join(recc)}"
+    return render_template("result.html", verdict=verdict, recc=recc)
 

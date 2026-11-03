@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Verdict</title>
+</head>
+<body>
+    <h1>Your Verdict</h1>
+
+    <p>{{ verdict }}</p> <!-- Jinja drops value of verdict from app.py ezpz -->
+
+    <h2>Recommendations</h2>
+    <ul>
+        {% for r in recc %} <!-- basically a for loop-->
+            <li>{{ r }}</li>
+        {% endfor %} <!-- loop end -->
+    </ul>
+
+    <a href="/">Try again</a>
+</body>
+</html>
