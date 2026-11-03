@@ -1,14 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from logic import get_hangover
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html") #For the homepage, we use the html file
 
-@app.route("/result/<int:drinks>")
-def result(drinks):
+@app.route("/result", methods=["POST"]) 
+def result():
+    drinks = int(request.form["drinks"])
     verdict, recc = get_hangover(drinks)
     return f"Verdict: {verdict} <br> Recommendations: {', '.join(recc)}"
 
