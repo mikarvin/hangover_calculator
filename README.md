@@ -12,3 +12,5 @@ To run it:
 Some cosmetic stuff Claude helped out with, like CSS and some JScript stuff. 
 
 Disclamer: For fun only, not medial advice. Done to show capability of code and not for serious advice.
+
+- Mikael A.
