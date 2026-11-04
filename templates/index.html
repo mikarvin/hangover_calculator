@@ -8,8 +8,14 @@
     <h1>Hangover Calculator!</h1>
 
     <form action="/result" method="post">
-        <label>How many drinks did you have last night?</label>
-        <input type="number" name="drinks" min="0" required>
+        <label>Beers</label>
+        <input type="number" name="beers" min="0" value="0">
+        <label>Shots</label>
+        <input type="number" name="shots" min="0" value="0">
+        <label>Cocktails</label>
+        <input type="number" name="cocktails" min="0" value="0">
+        <label>Wines</label>
+        <input type="number" name="wines" min="0" value="0">
         <button type="submit">Calculate</button>
     </form>
 <footer>For fun only, not medical advice.</footer>

@@ -1,8 +1,9 @@
+#Total score function
 def calculate_score(beers, shots, cocktails, wines):
     score = beers * 0.3 + shots * 1.1 + cocktails * 0.8 + wines * 0.5
     return round(score, 1)
 
-
+#Score analysis
 def get_hangover(score):
     if score >= 15:
         verdict = "You are a legend."
@@ -27,4 +28,4 @@ def get_hangover(score):
         recc = ["Man works at the place."]
     return verdict, recc
 
-    
+    #Yes, I wrote all these comments myself. 

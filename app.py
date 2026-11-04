@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from logic import get_hangover
+from logic import calculate_score, get_hangover
 
 app = Flask(__name__)
 
@@ -11,7 +11,15 @@ def home():
 def result():
     if request.method == "GET":
         return redirect("/")
-    drinks = int(request.form["drinks"])
-    verdict, recc = get_hangover(drinks)
+    #Drinks fields
+    beers = int(request.form["beers"])
+    shots = int(request.form["shots"])
+    cocktails = int(request.form["cocktails"])
+    wines = int(request.form["wines"])
+    #Score calc
+    score = calculate_score(beers, shots, cocktails, wines) #Calculate score based on num of drinks
+    #Verdict and recommendations
+    verdict, recc = get_hangover(score) #pass it back to logic page to get_hangover function
+
     return render_template("result.html", verdict=verdict, recc=recc)
 
