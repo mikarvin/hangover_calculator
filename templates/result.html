@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Your Verdict</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Your Verdict</h1>
 
-    <p>{{ verdict }}</p> <!-- Jinja drops value of verdict from app.py ezpz -->
+    <p>{{ verdict }}</p> {# Jinja drops value of verdict from app.py #}
+
+    <p class="meter-label">Hangover score: {{ score }}</p>
+
+    <div class="meter">
+        <div class="meter-fill" style="width: {{ meter }}%"></div>
+    </div>
+    <p class="meter-label">{{ meter }}% hungover</p>
 
     <h2>Recommendations</h2>
     <ul>
-        {% for r in recc %} <!-- basically a for loop-->
+        {% for r in recc %} {# basically a for loop #}
             <li>{{ r }}</li>
-        {% endfor %} <!-- loop end -->
+        {% endfor %} {# loop end #}
     </ul>
 
     <a href="/">Try again</a>
-<footer>For fun only, not medical advice.</footer>
+
+    <footer>For fun only, not medical advice.</footer>
 </body>
 </html>

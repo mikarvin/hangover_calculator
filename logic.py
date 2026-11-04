@@ -1,3 +1,9 @@
+#Percentage score
+def calculate_meter(score):
+    pscore = (score / 8) * 100
+    return round(pscore, 1) 
+
+
 #Total score function
 def calculate_score(beers, shots, cocktails, wines):
     score = beers * 0.3 + shots * 1.1 + cocktails * 0.8 + wines * 0.5
