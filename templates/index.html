@@ -8,16 +8,77 @@
     <h1>Hangover Calculator!</h1>
 
     <form action="/result" method="post">
-        <label>Beers</label>
-        <input type="number" name="beers" min="0" value="0" required>
-        <label>Shots</label>
-        <input type="number" name="shots" min="0" value="0" required>
-        <label>Cocktails</label>
-        <input type="number" name="cocktails" min="0" value="0" required>
-        <label>Wines</label>
-        <input type="number" name="wines" min="0" value="0" required>
-        <button type="submit">Calculate</button>
-    </form>
+    <p class="question">What did you have last night?</p>
+
+    <div class="drinks">
+        <div class="drink">
+            <button type="button" class="drink-btn" onclick="change('beers', 1)">
+                <span class="emoji">🍺</span>
+                <span>Beer</span>
+            </button>
+            <div class="counter">
+                <button type="button" class="minus" onclick="change('beers', -1)">−</button>
+                <span id="beers-count" class="count">0</span>
+            </div>
+            <input type="hidden" name="beers" id="beers" value="0">
+        </div>
+
+        <div class="drink">
+            <button type="button" class="drink-btn" onclick="change('shots', 1)">
+                <span class="emoji">🥃</span>
+                <span>Shot</span>
+            </button>
+            <div class="counter">
+                <button type="button" class="minus" onclick="change('shots', -1)">−</button>
+                <span id="shots-count" class="count">0</span>
+            </div>
+            <input type="hidden" name="shots" id="shots" value="0">
+        </div>
+
+        <div class="drink">
+            <button type="button" class="drink-btn" onclick="change('cocktails', 1)">
+                <span class="emoji">🍹</span>
+                <span>Cocktail</span>
+            </button>
+            <div class="counter">
+                <button type="button" class="minus" onclick="change('cocktails', -1)">−</button>
+                <span id="cocktails-count" class="count">0</span>
+            </div>
+            <input type="hidden" name="cocktails" id="cocktails" value="0">
+        </div>
+
+        <div class="drink">
+            <button type="button" class="drink-btn" onclick="change('wines', 1)">
+                <span class="emoji">🍷</span>
+                <span>Wine</span>
+            </button>
+            <div class="counter">
+                <button type="button" class="minus" onclick="change('wines', -1)">−</button>
+                <span id="wines-count" class="count">0</span>
+            </div>
+            <input type="hidden" name="wines" id="wines" value="0">
+        </div>
+    </div>
+
+    <button type="submit">Calculate</button>
+</form>
+
+<script>
+    function change(name, amount) {
+        const input = document.getElementById(name);
+        let value = parseInt(input.value) + amount;
+        if (value < 0) {
+            value = 0;
+        }
+        input.value = value;
+
+        const count = document.getElementById(name + "-count");
+        count.textContent = value;
+        count.classList.remove("bump");
+        void count.offsetWidth;
+        count.classList.add("bump");
+    }
+</script>
 <footer>For fun only, not medical advice.</footer>
 </body>
 </html>
